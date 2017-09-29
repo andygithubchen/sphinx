@@ -19,7 +19,7 @@ apt-get -f install libxml2-dev
 apt-get -f install libexpat1-dev
 apt-get -f install expat
 
-##安装mmseg
+#安装mmseg
 cd ./coreseek-3.2.14/mmseg-3.2.14/
 ./bootstrap    #输出的warning信息可以忽略，如果出现error则需要解决
 ./configure --prefix=/usr/local/mmseg3
@@ -36,29 +36,17 @@ sed -i "1047s/ExprEval/this->ExprEval/" ./src/sphinxexpr.cpp
 make && make install
 cd -
 
+#mmseg 同义词/复合分词处理
+cd /usr/local/mmseg3/etc
+/usr/local/mmseg3/bin/mmseg -u unigram.txt
+mv thesaurus.txt.uni uni.lib
+cd -
 
-
-
-##测试
-#cd testpack
-#cat var/test/test.xml  #此时应该正确显示中文
-#/usr/local/mmseg3/bin/mmseg -d /usr/local/mmseg3/etc var/test/test.xml
-#/usr/local/coreseek/bin/indexer -c etc/csft.conf --all
-#/usr/local/coreseek/bin/search -c etc/csft.conf 网络搜索
-
-# 如果出这样的错：
-#/usr/local/coreseek/bin/indexer: error while loading shared libraries: libmysqlclient.so.20: cannot open shared object file: No such file or directory
-#就这样：ln -s /usr/local/mysql/lib/libmysqlclient.so.18 /usr/lib/
+python ./coreseek-3.2.14/mmseg-3.2.14/script/build_thesaurus.py /usr/local/mmseg3.2/etc/unigram.txt > thesaurus.txt
+/usr/local/mmseg3.2/bin/mmseg -t thesaurus.txt
+rm -fr ./thesaurus.txt
+mv ./thesaurus.lib /usr/local/mmseg3.2/etc/
 
 
 
 
-#/usr/local/coreseek/bin/indexer -c /usr/local/coreseek/etc/csft.conf --all  #生成索引（所有的）
-#/usr/local/coreseek/bin/indexer -c /usr/local/coreseek/etc/csft.conf bt     #生成索引（只是生成bt这个源的）
-
-##服务(给PHP客户端用的）
-#/usr/local/coreseek/bin/searchd        # 启动服务
-#/usr/local/coreseek/bin/searchd --stop # 关闭服务
-
-
-#增量索引?
