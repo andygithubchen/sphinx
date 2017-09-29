@@ -42,14 +42,14 @@ searchd{
 
 
 ### 3. 其他
-1. <b>sphinx服务管理</b>
+1. sphinx服务管理
 <pre>
 /usr/local/coreseek/bin/searchd        # 启动服务
 /usr/local/coreseek/bin/searchd --stop # 关闭服务
 </pre>
 
 
-2. <b>安装完后用命令行测试</b>
+2. 安装完后用命令行测试
 <pre>
 cd testpack
 cat var/test/test.xml  #此时应该正确显示中文
@@ -58,14 +58,14 @@ cat var/test/test.xml  #此时应该正确显示中文
 /usr/local/coreseek/bin/search -c etc/csft.conf 网络搜索
 </pre>
 
-3. <b>如果出这样的错：</b>
+3. 如果出这样的错：
 <pre>
 /usr/local/coreseek/bin/indexer: error while loading shared libraries:
 libmysqlclient.so.20: cannot open shared object file: No such file or directory
 就这样：<b>ln -s /usr/local/mysql/lib/libmysqlclient.so.18 /usr/lib/</b> (ubuntu)
 </pre>
 
-4. <b>关于增量索引</b>
+4. 关于增量索引
 <pre>
 生成增量索引
 /usr/local/coreseek/bin/indexer -c /usr/local/coreseek/etc/csft.conf index_new(增量索引)
@@ -74,7 +74,7 @@ libmysqlclient.so.20: cannot open shared object file: No such file or directory
 <br>可以参考的设计思路：https://gist.github.com/ftfniqpl/f96991759ec259a445d4d45cfe716847
 </pre>
 
-5. <b>生成索引</b>
+5. 生成索引
 <pre>
 生成所有索引
 /usr/local/coreseek/bin/indexer -c /usr/local/coreseek/etc/csft.conf --all
@@ -83,12 +83,12 @@ libmysqlclient.so.20: cannot open shared object file: No such file or directory
 /usr/local/coreseek/bin/indexer -c /usr/local/coreseek/etc/csft.conf index_new
 </pre>
 
-6. <b>最强coreseek文档：</b>
+6. 最强coreseek文档：
 <pre>
 http://github.tiankonguse.com/doc/sphinx/coreseek_4.0-sphinx_1.11-beta.html
 </pre>
 
-7. <b>mmseg 同义词/复合分词处理</b>
+7. mmseg 同义词/复合分词处理
 <pre>
 http://oohcode.com/2014/07/05/coreseek-manual/
 </pre>
