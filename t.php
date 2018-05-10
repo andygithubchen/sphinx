@@ -16,7 +16,7 @@ $keyword = 'doc';
 
 $Sphinx->SetSortMode(SPH_SORT_EXTENDED, 'group_id asc');
 $Sphinx->SetLimits(0, 10);
-$Sphinx->SetFilter('id', array(3));
+$Sphinx->SetFilter('id', array(3)); //相当于where
 $result = $Sphinx->Query($keyword, 'test_andy');
 print_r($result);
 
