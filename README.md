@@ -98,4 +98,10 @@ http://php.net/manual/en/class.sphinxclient.php
 http://oohcode.com/2014/07/05/coreseek-manual/
 </pre>
 
+9. 注意事项
+<pre>
+#支持中文时要加上这些，charset_dictpath看自己mmseg实际路径
+charset_dictpath = /usr/local/mmseg/etc
+charset_type     = zh_cn.utf-8
+</pre>
 
