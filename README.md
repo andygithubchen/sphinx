@@ -100,8 +100,12 @@ http://oohcode.com/2014/07/05/coreseek-manual/
 
 9. 注意事项
 <pre>
-#支持中文时要加上这些，charset_dictpath看自己mmseg实际路径
+1. 支持中文时要加上这些，charset_dictpath看自己mmseg实际路径
 charset_dictpath = /usr/local/mmseg/etc
 charset_type     = zh_cn.utf-8
+
+2. sphinx 不能用表主键做属性，解决如下：
+sql_query = SELECT id,id as aid,body from table
+sql_attr_uint = aid
 </pre>
 
