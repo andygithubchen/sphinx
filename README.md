@@ -88,7 +88,12 @@ libmysqlclient.so.20: cannot open shared object file: No such file or directory
 http://github.tiankonguse.com/doc/sphinx/coreseek_4.0-sphinx_1.11-beta.html
 </pre>
 
-7. mmseg 同义词/复合分词处理
+7. sphinxclient 类文档：
+<pre>
+http://php.net/manual/en/class.sphinxclient.php
+</pre>
+
+8. mmseg 同义词/复合分词处理
 <pre>
 http://oohcode.com/2014/07/05/coreseek-manual/
 </pre>
