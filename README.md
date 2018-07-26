@@ -107,5 +107,9 @@ charset_type     = zh_cn.utf-8
 2. sphinx 不能用表主键做属性，解决如下：
 sql_query = SELECT id,id as aid,body from table
 sql_attr_uint = aid
+
+3. 启动时如果类似这样：
+WARNING: index 'video': preload: failed to open /usr/local/coreseek/var/data/video.sph: No such file or directory; NOT SERVING
+是因为事先没有生成索引，可以用上面第5点生成再启动就可以了。
 </pre>
 

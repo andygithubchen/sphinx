@@ -11,13 +11,13 @@
 
 #下载coreseek
 rm -fr ./coreseek-4.1-beta/
-wget http://img.phpgay.com//uploads/download/tools/coreseek-4.1-beta.tar.gz
+wget -c http://img.phpgay.com//uploads/download/tools/coreseek-4.1-beta.tar.gz
 tar -zxvf ./coreseek-4.1-beta.tar.gz
 
 apt-get update
-apt-get -f install libxml2-dev
-apt-get -f install libexpat1-dev
-apt-get -f install expat
+apt-get -y -f install libxml2-dev
+apt-get -y -f install libexpat1-dev
+apt-get -y -f install expat
 
 #安装mmseg
 cd ./coreseek-4.1-beta/mmseg-3.2.14/
@@ -50,7 +50,7 @@ cd /usr/local/mmseg3/etc
 mv thesaurus.txt.uni uni.lib
 cd -
 
-python ./coreseek-4.1-beta/mmseg-3.2.14/script/build_thesaurus.py /usr/local/mmseg3/etc/unigram.txt > thesaurus.txt
+python3 ./coreseek-4.1-beta/mmseg-3.2.14/script/build_thesaurus.py /usr/local/mmseg3/etc/unigram.txt > thesaurus.txt
 /usr/local/mmseg3/bin/mmseg -t thesaurus.txt
 rm -fr ./thesaurus.txt
 mv ./thesaurus.lib /usr/local/mmseg3/etc/
