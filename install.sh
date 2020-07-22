@@ -2,7 +2,7 @@
 
 #wget https://github.com/sphinxsearch/sphinx/archive/2.2.11-release.tar.gz --no-check-certificate
 #
-##安装sphinx
+##安装sphinx (其实都不用安装这个的)
 #rm -fr ./sphinx-2.2.11-release
 #tar -zxvf ./2.2.11-release.tar.gz
 #cd ./sphinx-2.2.11-release
@@ -50,7 +50,8 @@ cd /usr/local/mmseg3/etc
 mv thesaurus.txt.uni uni.lib
 cd -
 
-python3 ./coreseek-4.1-beta/mmseg-3.2.14/script/build_thesaurus.py /usr/local/mmseg3/etc/unigram.txt > thesaurus.txt
+#要用python2.x 来执行
+python ./coreseek-4.1-beta/mmseg-3.2.14/script/build_thesaurus.py /usr/local/mmseg3/etc/unigram.txt > thesaurus.txt
 /usr/local/mmseg3/bin/mmseg -t thesaurus.txt
 rm -fr ./thesaurus.txt
 mv ./thesaurus.lib /usr/local/mmseg3/etc/
